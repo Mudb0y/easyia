@@ -16,3 +16,6 @@ elif option == "2":
     search_id = input()
     for i in search_items('identifier:' +search_id):
         print (i)
+
+else:
+        print("Please enter a valid option.")
