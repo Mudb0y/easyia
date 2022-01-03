@@ -1,21 +1,21 @@
 # Inport dependencies.
-import os
-from internetarchive import download
-from internetarchive import search_items
+import os, sys
+from internetarchive import download, search_items
 
-print ("Welcome to The Internet Archive indexing and downloading tool. \n Please select an option: \n 1. Download item using The Internet Archive item identifier. \n 2. Use The Internet Archive search engine to search for items. \n prompt: ")
-option = (input())
+print ("Welcome to The Internet Archive indexing and downloading tool. \n Please select an option: \n 1. Download item using The Internet Archive item identifier. \n 2. Use The Internet Archive search engine to search for items.")
+option = input("prompt: ")
+
+if option.isdigit == False:
+    sys.exit("Please enter an integer.")
 
 if option == "1":
-    print ("Please enter the item identifier: ")
-    ia_id = input()
+    ia_id = input("Please enter the item identifier: ")
     download(ia_id, verbose=True)
 
 elif option == "2":
-    print ("Please enter your search term: ")
-    search_id = input()
+    search_id = input("Please enter your search term: ")
     for i in search_items('identifier:' +search_id):
         print (i)
 
 else:
-        print("Please enter a valid option.")
+    print("Please enter a valid option.")
